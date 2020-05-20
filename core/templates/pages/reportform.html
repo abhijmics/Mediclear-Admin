@@ -1,0 +1,711 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} Lab Test Report {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+                         
+                            <script type="text/javascript">
+                                swal({
+                                title: "Submitted!!",
+                                text: "Your data has been submiteed successfully!!",
+                                icon: "success",
+                                button: "OK",
+                                });
+                            </script>
+                        {% endfor %}
+                        {% endif %}
+
+                    
+<div class="page-inner">
+    <div class="page-header">
+        <h4 class="page-title">Lab</h4>
+        <ul class="breadcrumbs">
+            <li class="nav-home">
+                <a href="#">
+                    <i class="flaticon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="flaticon-right-arrow"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Lab</a>
+            </li>
+            <li class="separator">
+                <i class="flaticon-right-arrow"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Lab Test Report</a>
+            </li>
+        </ul>
+    </div>
+
+<form method="post" action="reportform.html" enctype="multipart/form-data">
+{% csrf_token %}
+    <!-- ----------------Part 1 -------------------------->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Part-1 To be filled by candidate before Medical Examination</div>
+                </div>
+                <div class="card-body">
+                    <div class="row ml-0">
+                        <div class="col-md-12 col-lg-8">
+                            <div class="form-group">
+                                <label for="name" class="col-md-3 col-form-label">Name</label>
+                                <div class="col-md-9 p-1">
+                                    <input type="text" name="name" class="form-control input-full ml-0" id="name"
+                                        placeholder="Enter your name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 col-form-label">Gender</label>
+                                <div class="col-md-9 p-1">
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-radio-label">
+                                            <input class="form-radio-input" type="radio" name="gender" value="Male"
+                                                checked="">
+                                            <span class="form-radio-sign">Male</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check  form-check-inline">
+                                        <label class="form-radio-label ml-3">
+                                            <input class="form-radio-input" type="radio" name="gender" value="Female">
+                                            <span class="form-radio-sign">Female</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address" class="col-md-3 col-form-label">Address</label>
+                                <div class="col-md-9 p-1">
+                                    <input type="text" name="address" class="form-control input-full" id="address"
+                                        placeholder="Enter your address">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inlineinput" class="col-md-3 col-form-label">Date of birth</label>
+                                <div id="from-datepicker" class="col-md-9 p-1">
+                                    <input data-format="dd/MM/yyyy" type="text" value="01/01/1985" id="dob"
+                                        class="form-control input-full" name="dob">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email2" class="col-md-3 col-form-label">Email Address</label>
+                                <div class="col-md-9 p-1">
+                                    <input type="email" class="form-control input-full" id="email2"
+                                        placeholder="Enter Email" name="email">
+                                    <small id="emailHelp2" class="form-text text-muted">We'll never share your email
+                                        with anyone else.</small>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="q1" class="col-md-9 col-form-label">1. Are you
+                                    currently being treated by a health professional for any illness or injury?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q1" name="q1">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q2" class="col-md-9 col-form-label">2. Do you use any
+                                    drugs or medications prescribes by Doctor?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q2" name="q2">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q3" class="col-md-9 col-form-label">3. Do you use any
+                                    drugs or medications not prescribes by Doctor? </label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q3" name="q3">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q4" class="col-md-9 col-form-label">4. Do you have
+                                    heart disease?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q4" name="q4">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q5" class="col-md-9 col-form-label">5. Do you have
+                                    high blood pressure?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q5" name="q5">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q6" class="col-md-9 col-form-label">6. Do you have
+                                    vertigo or fear of heights?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q6" name="q6">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q7" class="col-md-9 col-form-label">7. Do you have
+                                    sleep disorder?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q7" name="q7">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="q8" class="col-md-9 col-form-label">8. Do you have
+                                    Epilepsy?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="q8" name="q8">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1" class="col-md-9 col-form-label">9. Have you ever
+                                    had any serious injury, illness, opertaion, or been in hospital for any
+                                    reason?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="q9">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1" class="col-md-9 col-form-label">10. Have you ever
+                                    been blackout/fainted?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="q10">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1" class="col-md-9 col-form-label">11. Do you drink
+                                    alchohol?</label>
+                                <div class="col-md-3 p-1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="q11">
+                                        <option>Yes</option>
+                                        <option selected>No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Upload your passport size photo</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comment">Comment</label>
+                                <textarea class="form-control" id="comment" rows="5"  name="comment">
+                                    </textarea>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" checked="checked">
+                                    <span class="form-check-sign">Agree with terms and conditions</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ---------------Part 1 ends here ----->
+
+
+    <!- part 2 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Part-2 Clinical Examination/Lab Test </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+
+
+                                <div class="form-group">
+                                    <label for="basic-url">BMI</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Height</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="height">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">In</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Weight</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="weight">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Kg</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Blood pressure - (repeat if necessary)</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Systolic</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="systolic">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">mmHg</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Diastolic</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="diastolic">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">mmHg</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Pulse rate</label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="pulserate">
+                                            <option>Regular</option>
+                                            <option>Irregular</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Heart sounds</label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="heartsound">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Peripheral
+                                        pulses</label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="peripheralpulse">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Chest/Lungs</label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="chestlung">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Abdomen (Liver)
+                                    </label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="abdomen">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1"
+                                        class="col-form-label">Neurological/Locomotor</label>
+                                    <div class="p-1">
+                                        <label for="exampleFormControlSelect1" class="col-form-label">Cervical Spine
+                                            Rotation</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="neurological">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="p-1">
+                                        <label for="exampleFormControlSelect1" class="col-form-label">Cervical Spine
+                                            Rotation</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="cervicalspine">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="p-1">
+                                        <label for="exampleFormControlSelect1" class="col-form-label">Back
+                                            Movement</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="backmovement">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="p-1">
+                                        <label for="exampleFormControlSelect1" class="col-form-label">Upper
+                                            Limbs</label>
+                                        <div class="p-1">
+                                            <label for="exampleFormControlSelect1"
+                                                class="col-form-label">Appearance</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="upperlimbs">
+                                                <option>Normal</option>
+                                                <option>Abnormal</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="p-1">
+                                            <label for="exampleFormControlSelect1" class="col-form-label">Joint
+                                                Movements</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="jointmovements">
+                                                <option>Normal</option>
+                                                <option>Abnormal</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="p-1">
+                                        <label for="exampleFormControlSelect1" class="col-form-label">Reflexes</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="reflexes">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="p-1">
+                                        <label for="exampleFormControlSelect1" class="col-form-label">Romberg's
+                                            Sign</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="rombergs">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Hearing (Doctor's
+                                        judgement) </label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="hearing">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-inline">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Vision Test (Doctor's
+                                        judgement)</label>
+                                    <div class="p-1">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="vision">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="basic-url">Routine Urine Examination</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Albumin</span>
+                                        </div>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="albumin">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Sugar</span>
+                                        </div>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="sugar">
+                                            <option>Normal</option>
+                                            <option>Abnormal</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="basic-url">Routine Blood Examination</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Blood Group</span>
+                                        </div>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="blood_group">
+                                            <option>A+</option>
+                                            <option>A-</option>
+                                            <option>B+</option>
+                                            <option>B-</option>
+                                            <option>O+</option>
+                                            <option>O-</option>
+                                            <option>AB+</option>
+                                            <option>AB-</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Rh factor</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="rh_factdor">
+
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Hb</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="hb">
+
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">TLC</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="tlc">
+
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">RBC</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="rbc">
+
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">Platelets Count</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="plateletscount">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">L/C</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">   
+                                            <span class="input-group-text" id="basic-addon3">S/Triglycerides</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="triglycerides">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">mg/DI</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">HDL</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="hdl">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">mg/DI</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3">LDL</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="basic-url"
+                                            aria-describedby="basic-addon3" name="ldl">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">mg/DI</span>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!---------------------Part 2 Ends here ------------------------>
+
+
+        <!--   Part 3   -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Part3- Certificate of Physical fitness</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-8">
+                                <div>
+                                    <p>
+                                        I hereby certify that candidate has been examined by us, We can not discover
+                                        that he/she has got any disease,
+                                        Communicable or otherwise, constitutional or bodilydeformity except NA.
+                                        candidate is hereby declared.
+                                    </p>
+                                </div>
+                                <div class="p-1">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Result</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="result">
+                                        <option>Fit</option>
+                                        <option>Unfit</option>
+                                        <option>Temporarily Unfit</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            For the post of <br />
+                            1) Working on Height<br />
+                            2)Electrical Work<br />
+                            3)Four Wheeler Driving
+                        </p>
+                        <p>
+                            Doctor's full name Dr. Vijay N Bade
+                        </p>
+
+                        <div class="form-group form-inline">
+                            <label for="name" class="col-md-3 col-form-label">Registration No</label>
+                            <div class="col-md-9 p-1">
+                                <input type="text" class="form-control input-full" id="registration_no"
+                                    placeholder="Enter registration no." name="registration_no">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group form-inline">
+                        <label for="name" class="col-md-3 col-form-label">Date of Examination</label>
+                        <div class="col-md-9 p-1">
+                            <input type="text" class="form-control input-full" id="date_of_examination"
+                                placeholder="Enter Date" name="date_of_examination">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-action">
+                    <button class="btn btn-success" id="submit">Submit</button>
+                    <button class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!---------------------Part 3 Ends here ------------------------>
+</form>
+</div>
+
+
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+<script>
+    ("#submit").click(function(){
+
+        alert("I am clicked");
+    })
+</script>
+{% endblock javascripts %}

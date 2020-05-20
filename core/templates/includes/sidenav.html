@@ -1,0 +1,153 @@
+
+		<!-- Sidebar -->
+		<div class="sidebar sidebar-style-2" data-background-color="dark2">
+					
+			<div class="sidebar-wrapper scrollbar scrollbar-inner">
+				<div class="sidebar-content">
+				
+					{% if user.is_authenticated %}
+
+						<div class="user">
+							<div class="avatar-sm float-left mr-2">
+								<img src="/static/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+							</div>
+							<div class="info">
+								<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+									<span>
+										{{ request.user.user }}
+										<span class="user-level">
+											{{ request.user.email }}  
+										</span>
+										<span class="caret"></span>
+									</span>
+								</a>
+								<div class="clearfix"></div>
+
+								<div class="collapse in" id="collapseExample">
+									<ul class="nav">
+										<li>
+											<a href="#profile">
+												<span class="link-collapse">My Profile</span>
+											</a>
+										</li>
+										<li>
+											<a href={% url 'logout' %}>
+												<span class="link-collapse">Logout</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<ul class="nav nav-primary">
+							<li class="nav-item active">
+								<a data-toggle="collapse" href="/" class="collapsed" aria-expanded="false">
+
+									<i class="fas fa-home"></i>
+									<p>Mediclear</p>
+									
+								</a>
+
+							</li>
+							<li class="nav-section">
+								<span class="sidebar-mini-icon">
+									<i class="fa fa-ellipsis-h"></i>
+								</span>
+								<h4 class="text-section">Services</h4>
+							</li>
+								<!-- Mediclear Customization-->
+								<li class="nav-item">
+								<a data-toggle="collapse" href="#lab">
+									<i class="fa fa-thermometer-empty"></i>
+									<p>Lab</p>
+									<span class="caret"></span>
+								</a>
+								<div class="collapse" id="lab">
+									<ul class="nav nav-collapse">
+										<li>
+											<a href="/reportform.html">
+												<span class="sub-item">Lab Test Report</span>
+											</a>
+											<a href="/printreport.html">
+												<span class="sub-item">Print Report</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+								<li class="nav-item">
+								<a data-toggle="collapse" href="#training">
+									<i class="fa fa-certificate"></i>
+									<p>Training</p>
+									<span class="caret"></span>
+								</a>
+								<div class="collapse" id="training">
+									<ul class="nav nav-collapse">
+										<li>
+											<a href="/certificate_form.html">
+												<span class="sub-item">Generate Training Certificate</span>
+											</a>
+										</li>
+										<li>
+											<a href="/certificate-verification.html">
+												<span class="sub-item">Verify Certificate</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+								<li class="nav-item">
+								<a data-toggle="collapse" href="#idcard">
+									<i class="fa fa-address-card"></i>
+									<p>ID Card</p>
+									<span class="caret"></span>
+								</a>
+								<div class="collapse" id="idcard">
+									<ul class="nav nav-collapse">
+										<li>
+											<a href="/idcard_form.html">
+												<span class="sub-item">Id Card Form</span>
+											</a>
+											<a href="/idcard-print.html">
+												<span class="sub-item">Print Id Card</span>
+											</a>
+											<a href="/idcard-import.html">
+												<span class="sub-item">Generate Id Card From Excel</span>
+											</a>
+
+										</li>
+									</ul>
+								</div>
+							</li>
+
+								
+							
+
+							<!-- Mediclear Side Menu ends here-->
+							
+							
+							
+							
+							<li class="nav-item">
+								<a href="/widgets.html">
+									<i class="fas fa-desktop"></i>
+									<p>Widgets</p>
+									<span class="badge badge-success">4</span>
+								</a>
+							</li>
+							
+							<li class="mx-4 mt-2">
+								<a href="http://www.mediclear.in/" 
+										class="btn btn-primary btn-block">
+										<span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>Visit MediClear</a> 
+							</li>
+						</ul>
+					
+					{% endif %}	
+
+				</div>
+			</div>
+		</div>
+		<!-- End Sidebar -->
