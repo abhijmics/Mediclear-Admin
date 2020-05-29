@@ -10,7 +10,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django.contrib import messages
 from app.models import *
-
+from app.models import idcard
 
 @login_required(login_url="/login/")
 def index(request):
@@ -51,6 +51,12 @@ def idcard_form(request):
     else:
         return render(request,'pages/idcard-form.html',context=None)
 
+def idcard_data(request):
+    report = Report.objects.all()
+    return render(request,'pages/idcard_data.html',{'report':report})
+
+def idcard_import(request):
+    return render(request,'pages/idcard_import.html')
 
 def certificate_form(request):
     if request.method=="POST":

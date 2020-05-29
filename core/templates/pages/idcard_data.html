@@ -35,7 +35,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">All Medical Reports</h4>
+                        <h4 class="card-title">ID Card Details</h4>
                         <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
                             data-target="#addRowModal">
                             <i class="fa fa-plus"></i>
@@ -110,18 +110,7 @@
                                     <th style="width: 10%">Action</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    
-                                    <th>Name</th>
-                                    <th>Gender</th>
-
-                                    <th>Email</th>
-                                    <th>Result</th>
-                                    <th>Date Of Examination</th>
-                                    <th style="width: 100%">Action</th>
-                                </tr>
-                            </tfoot>
+                         
                             <tbody>
 
                                 {% for i in report %}
@@ -153,7 +142,8 @@
                                     </td>
                                 </tr>
                                 {% endfor %}
-                                               </tbody>
+                                
+                            </tbody>
                         </table>
                     </div>
                 </div>

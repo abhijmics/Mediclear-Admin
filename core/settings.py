@@ -125,8 +125,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'core/static'),
 )
 #############################################################
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'static/img')
 #############################################################
 
 # Activate Django-Heroku.
