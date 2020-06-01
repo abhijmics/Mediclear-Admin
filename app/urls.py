@@ -21,4 +21,5 @@ urlpatterns = [
     path('certificate-verification.html', views.certificate_verification, name='printreport'),
     path('idcard_data.html', views.idcard_data, name='idcard'),
     path('idcard_import.html', views.idcard_import, name='idcard_import'),
+    path('report/<str:pk>',views.report,name='pdfreport'),
 ]

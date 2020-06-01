@@ -11,6 +11,8 @@ from django.http import HttpResponse
 from django.contrib import messages
 from app.models import *
 from app.models import idcard
+import pdfkit
+from qrcode import *
 
 @login_required(login_url="/login/")
 def index(request):
@@ -65,7 +67,8 @@ def certificate_form(request):
         certificate_validity=request.POST.get('certificate_validity')
         date=request.POST.get('date')
         place=request.POST.get('place')
-        print("Place is "+place)
+        img=make(name)
+        img.save("static/qr.png")
         certificate=Certificate(name=name,training_name=training_name,certificate_validity=certificate_validity,date=date,place=place)
         certificate.save()
         messages.success(request,"Your data has been submiteed successfully!!")
@@ -75,7 +78,7 @@ def certificate_form(request):
 def certificate_verification(request):
     return render(request,'pages/certificate-verification.html')
 def printreport(request):
-    report = Report.objects.all()
+    report = Report.objects.all().order_by('-name')
     return render(request,'pages/printreport.html',{'report':report})
 
 def reportform(request):
@@ -96,7 +99,7 @@ def reportform(request):
         q9=request.POST.get('q9')
         q10=request.POST.get('q10')
         q11=request.POST.get('q11')
-        image=""
+        image=request.FILES['image']
         comment=request.POST.get('comment')
         height=request.POST.get('height')
         weight=request.POST.get('weight')
@@ -133,4 +136,11 @@ def reportform(request):
         messages.success(request,"Your data has been submiteed successfully!!")
     return render(request,'pages/reportform.html',context=None)
     
+
+def report(request,pk):
+    report = Report.objects.get(id=pk)
+    #report = Report.objects.all()
+    qr=make(report.name)
+    qr.save("media/report.png")
+    return render(request,'pages/report.html',{'report':report,'qr':qr})
 

@@ -135,18 +135,21 @@
                                 <td>{{i.date_of_examination}}</td>
                                 <td>
                                         <div class="form-button-action">
+                                            <!-- <a href="/report.html"> -->
+                                            <a href="{% url 'pdfreport' i.id %} ">
                                             <button type="button" data-toggle="tooltip" title=""
                                                 class="btn btn-link btn-primary btn-lg"
                                                 data-original-title="Print Report">
                                                 <i class="fa fa-print"></i>
                                             </button>
+                                            </a>
                                             <button type="button" data-toggle="tooltip" title=""
                                                 class="btn btn-link btn-primary btn-lg"
                                                 data-original-title="Edit Report">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                             <button type="button" data-toggle="tooltip" title=""
-                                                class="btn btn-link btn-danger" data-original-title="DElete Report">
+                                                class="btn btn-link btn-danger" data-original-title="Delete Report">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </div>

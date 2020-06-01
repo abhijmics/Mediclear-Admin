@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>
+        {% block title %}Report{% endblock %}
+    </title>
+    {% load static %}
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href="/static/assets/img/icon.ico" type="image/x-icon" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/atlantis.min.css">
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="/static/assets/css/demo.css">
+
+    <!-- Specific CSS goes HERE -->
+ <style>
+
+  body{
+
+
+  }
+
+  .card-header
+  {
+  }
+.page
+{    
+}
+
+ center{
+    color:#32AEB1;
+    font-weight:700;
+ }
+ </style>
+
+</head>
+
+<body>
+    <div class="page-inner">
+        <div class="row part-1 page">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <center>
+                                <h1 class="col-xl-12">MEDICLEAR</h1>
+                                Site Office - 90, Vasant Complex, Mayur Vihar, Delhi </br>
+                                An ISO 9001 - 2015 CERTIFIED COMPANY<br/>
+                                HEALTH@MEDICLEAR.IN / 7428702988
+                                <br/><br />
+                            </center>
+                            <b> Certificate No: 2019/D02000</b>
+                        </div>
+
+                        <div class="card-title">Filled by candidate before Medical Examination</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row ml-0">
+                            <div class="col-md-12 col-lg-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-3 col-form-label">Name</label>
+                                            {{report.name}}
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 col-form-label">Gender</label>
+                                            {{report.gender}}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address" class="col-md-3 col-form-label">Address</label>
+                                            {{report.address}}
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inlineinput" class="col-md-3 col-form-label">Date of birth</label>
+                                            {{report.dob}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <img src= {{report.image.url}} width="225" height="300"/>
+                                      
+                                    </div>
+                                    <div class="col-md-3 ml-0">
+                                        <img src="{% static 'qr5.png' %}"/>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q1" class="col-md-9 col-form-label">1. Are you
+                                        currently being treated by a health professional for any illness or injury?</label>
+                                        {{report.q1}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q2" class="col-md-9 col-form-label">2. Do you use any
+                                        drugs or medications prescribes by Doctor?</label>
+                                        {{report.q2}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q3" class="col-md-9 col-form-label">3. Do you use any
+                                        drugs or medications not prescribes by Doctor? </label>
+                                        {{report.q3}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q4" class="col-md-9 col-form-label">4. Do you have
+                                        heart disease?</label>
+                                        {{report.q4}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q5" class="col-md-9 col-form-label">5. Do you have
+                                        high blood pressure?</label>
+                                        {{report.q5}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q6" class="col-md-9 col-form-label">6. Do you have
+                                        vertigo or fear of heights?</label>
+                                        {{report.q6}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q7" class="col-md-9 col-form-label">7. Do you have
+                                        sleep disorder?</label>
+                                        {{report.q7}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="q8" class="col-md-9 col-form-label">8. Do you have
+                                        Epilepsy?</label>
+                                        {{report.q8}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1" class="col-md-9 col-form-label">9. Have you
+                                        ever
+                                        had any serious injury, illness, opertaion, or been in hospital for any
+                                        reason?</label>
+                                        {{report.q9}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1" class="col-md-9 col-form-label">10. Have you
+                                        ever
+                                        been blackout/fainted?</label>
+                                        {{report.q10}}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1" class="col-md-9 col-form-label">11. Do you
+                                        drink
+                                        alchohol?</label>
+                                        {{report.q11}}
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                      <br/> <br/> <br/> <br/>
+                        <div class="row ml-5">
+                            <div class="col-md-3">Date</div>
+                            <div class="col-md-3">Signature Of Candidate</div>
+                            <div class="col-md-3">Left Hand Thumb Impression</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ---------------Part 1 ends here ----->
+
+        </div>
+        <!-- part 2 -->
+        <br/>
+        <br/><br/> <br/> <br/>
+
+        <div class="row part-2 page">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                            <center>
+                                <h1 class="col-xl-12">MEDICLEAR</h1>
+                                Site Office - 90, Vasant Complex, Mayur Vihar, Delhi </br>
+                                An ISO 9001 - 2015 CERTIFIED COMPANY<br/>
+                                HEALTH@MEDICLEAR.IN / 7428702988
+                                <br/><br />
+                            </center>
+                            <b> Certificate No: 2019/D02000</b>
+                        </div>
+                        <div class="card-title">Clinical Examination/Lab Test </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">1. BMI </label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Weight</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.weight}}In</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Height </label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.height}}</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">2. Blood pressure
+                            </label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Systolic</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.systolic}}</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Diastolic</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.diastolic}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">b. Pulse rate
+                            </label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.pulserate}}</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">c. Heart sounds
+                            </label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.pulserate}}</label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">d. Peripheral pulses</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.peripheralpulse}}</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">3. Chest/Lungs</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.chestlung}}</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">4. Abdomen (Liver)</label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.chestlung}}</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">5.
+                                Neurological/Locomotor</label>
+                            <div class="form-group ml-2">
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">a. Cervical
+                                    spine rotation</label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.curvicalspine}}</label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">b. Back movement
+                                </label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.backmovements}}</label>
+
+                            </div>
+
+                            <div class="form-group ml-2">
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">c. Upper limbs</label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.upperlimbs}}</label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">d. Lower limbs
+                                </label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.curvicalspine}}</label>
+                            </div>
+
+                            <div class="form-group ml-2">
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">e. Reflexes
+                                </label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.reflexes}}</label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">f. Romberg's
+                                    Sign </label>
+                                <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">{{report.rombergs}}</label>
+                                <label for="exampleFormControlSelect1" class="col-xl-12 col-form-label">A pass requires
+                                    the ability to maintain balance while standing with shoes off, feet together side
+                                    by side, eys closed and arms by sides, for 30 seconds</label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">6. Hearing (Doctor's
+                                judgement) </label>
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">{{report.hearing}}</label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">7.Vision Test
+                                (Doctor's judgement)</label>
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">{{report.vision}}</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">8. Routine Urine
+                                Examination</label>
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">ALBUMIN <span class="ml-5">{{report.albumin}}</span>
+                            </label>
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">SUGAR <span class="ml-5">{{report.sugar}}</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">9. Routine Blood
+                                examination</label>
+                            <label for="exampleFormControlSelect1" class="col-md-3 col-form-label">HAEMOGRAM</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Blood Group:<span
+                                    class="ml-1">{{report.blood_group}}</span> </label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Rh factor:<span
+                                    class="ml-1">{{report.rh_factor}}</span></label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Hb:<span class="ml-1">{{report.hb}}</span></label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">TLC:<span class="ml-1">{{report.tlc}}
+                                </span></label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">RBC:<span class="ml-1">{{report.rbc}}</span></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Platelets Count:<span
+                                    class="ml-1">{{report.plateletscount}}</span></label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">S/Triglycerides:<span
+                                    class="ml-1">{{report.triglycerides}}</span></label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">HDL: <span class="ml-1">{{report.hdl}}
+                                    mg/Dl</span></label>
+                            <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">LDL: <span class="ml-1">{{report.ldl}}
+                                    mg/Dl </span></label>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        
+
+    <!---------------------Part 2 Ends here ------------------------>
+    <!--   Part 3   -->
+    <br/><br/><br/><br/>
+    <div class="row part-3 page">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <center>
+                        <h1 class="col-xl-12">MEDICLEAR</h1>
+                        Site Office - 90, Vasant Complex, Mayur Vihar, Delhi </br>
+                        An ISO 9001 - 2015 CERTIFIED COMPANY<br/>
+                        HEALTH@MEDICLEAR.IN / 7428702988
+                        <br/><br />
+                    </center>
+                    <b> Certificate No: 2019/D02000</b>
+                
+                    <div class="card-title">Part3- Certificate of Physical fitness</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="col-md-12 col-lg-8">
+
+                            <div class="form-group">
+                                <p for="exampleFormControlSelect1" class="col-md-12 col-form-label">
+                                    I hereby certify that Mr. <b>Abhishek Barnwal</b> has been examined by us, We can
+                                    not discover
+                                    that he/she has got any disease,
+                                    Communicable or otherwise, constitutional or bodilydeformity except NA.
+                                    candidate is hereby declared <b>{{report.result}}</b> for following post.
+                                </p>
+
+                            </div>
+                        <div>
+                            <div class="col-ml-9">
+                                <div class="form-group">
+                                    <p for="exampleFormControlSelect1" class="col-md-12 col-form-label">
+                                        1) Working on Height<br />
+                                        2)Electrical Work<br />
+                                        3)Four Wheeler Driving
+                                    </p>
+                                </div>
+
+                                <div class="form-group">
+                                    <p for="exampleFormControlSelect1" class="col-md-12 col-form-label">
+                                        Doctor's full name Dr. Vijay N Bade
+                                    </p>
+                                </div>
+
+                                <div class="form-group">
+                                        <p for="exampleFormControlSelect1" class="col-md-12 col-form-label">
+                                                Seal & Signature:
+                                        </p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Registration No<span
+                                            class="ml-3">{{report.registration_no}}</span></label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1" class="col-md-2 col-form-label">Date<span class="ml-3">{{report.date_of_examination}}</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-ml-3 ">
+                                    <img src="{% static 'qr5.png' %}"/>
+                            </div>
+                        </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------Part 3 Ends here ------------------------>
+</body>
+
+</html>

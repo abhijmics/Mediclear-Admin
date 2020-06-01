@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',  # Enable the inner app 
-    'import_export'
+    'import_export',
+    'qr_code'
 ]
 
 MIDDLEWARE = [

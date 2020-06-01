@@ -22,7 +22,6 @@ class idcard(models.Model):
     def __str__(self):
         return self.name
 
-
     
     
 class Certificate(models.Model):
@@ -97,6 +96,4 @@ class Report(models.Model):
 
     def __str__(self):
         return self.name
-
-
 
